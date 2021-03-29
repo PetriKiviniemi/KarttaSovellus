@@ -1,3 +1,5 @@
+//var ib = new InfoBox();
+
 // Initialize and add the map
 function initMap() {
     // The location of Uluru
@@ -7,9 +9,31 @@ function initMap() {
       zoom: 4,
       center: oulu,
     });
+
+    const ouluTxt = "Oulu on paras paikka! :-)";
+
     // The marker, positioned at Uluru
-    const marker = new google.maps.Marker({
-      position: oulu,
-      map: map,
-    });
+    const marker = this.createMarker(oulu, map, ouluTxt);
+}
+
+function createMarker(loc, map, contentStr){
+  
+  var marker = new google.maps.Marker({
+    position: loc,
+    map: map,
+  });
+  
+  //Create info box for marker
+  var infoBox = document.createElement("div");
+  infoBox.className = 'info-box';
+  infoBox.innerHTML = marker
+
+  const infoWindow = new google.maps.InfoWindow({
+    content: contentStr,
+  });
+
+  marker.addListener("click", () => {
+    infoWindow.open(map, marker);
+  });
+  return marker
 }
