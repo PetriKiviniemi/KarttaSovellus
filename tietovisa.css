@@ -1,0 +1,112 @@
+.tietovisa-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.quiz-menu-container {
+    display: none;
+    width: 30%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.score-text-wrapper {
+    font-size: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.score-text-wrapper > p {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.play-btn {
+    width: 300px;
+    height: 50px;
+    font-size: 22px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.play-btn:hover {
+    background-color: lightgrey;
+}
+
+.play-btn.active {
+    background-color: #ccc;
+}
+
+.quiz-container {
+    width:70%;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+.image-wrapper {
+    width: 80%;
+    height: 300px;
+    border: 1px solid;
+}
+
+.question-text {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+.answers-wrapper {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.answer-box {
+    width: 40%;
+    height: 130px;
+    font-size: 22px;
+    margin: 10px;
+    outline: none;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.answer-box:hover {
+    background-color: lightgrey;
+}
+
+.answer-box.correctAns {
+    background-color: rgb(58, 167, 58);
+}
+
+.answer-box.wrongAns {
+    background-color: #D79392;
+}
+
+.answer-box.expectedAns {
+    animation: blinkingAns 1s infinite;
+}
+
+.answer-box.selWrongAns {
+    background-color: #db6a00;
+}
+
+@-webkit-keyframes blinkingAns {
+    0%, 49% {
+        background-color: rgb(58, 167, 58);
+    }
+    50%, 100% {
+        background-color: rgb(128, 255, 128);
+    }
+}

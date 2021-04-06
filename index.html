@@ -5,24 +5,82 @@
     </header>
     <script src="main.js"></script>
     <link rel="stylesheet" type="text/css" href="./app.css" />
+    <link rel="stylesheet" type="text/css" href="./info-popup.css"/>
     <body>
         <div class="main-container">
-            <div class="map-info">
-                <div class="map-infotext-wrapper">
-                    <h1>Kartta</h1>
-                    <p>
-                        tekstiä
-                        tekstiä
-                        tekstiä
-                        tekstiä
-                        tekstiä
-                    </p>
+            <div class="content-container">
+                <div class="nav-bar-wrapper">
+                    <div class="info-btn-wrapper">
+                        <button class="info-btn" onclick="popupClick()">
+                            <div class="info-btn-img"></div>
+                        </button>
+                    </div>
+                    <div class="main-header-wrapper">
+                        <h1 class="main-header-text">Karttasovellus</h1>
+                    </div>
+                    <div class="nav-bar-tabs">
+                        <button id='nav-1' class="tab-button" onclick="switchTab(event, 'map')">Paikkojen esittely</button>
+                        <button id='nav-2' class="tab-button" onclick="switchTab(event, 'tietovisa')">Tietovisa</button>
+                    </div>
+                    <p></p>
                 </div>
-                <div id="map"></div>
+
+                <div id="info-popup" class="info-popup-modal">
+                    <div class="info-popup-content">
+                        <span class="close-btn" onclick="closePopup()">&times;</span>
+                        <h1>Paikkojen esittely</h1>
+                        <p>Paikkojen esittely osion avulla voit tutkia opiskelijoille tärkeitä kohteita klikkaamalla kartan markkereita</p>
+                        <p>Karttaa voit liikuttaa hiirellä pitämällä vasemman hiiren näppäimen pohjassa tai zoomata karttaa hiiren rullalla.</p>
+                        <hr/>
+                        <h1>Tietovisa</h1>
+                        <p>Tietovisassa voit testata tietämystäsi oulun paikoista vastaamalla yksinkertaisiin kysymyksiin</p>
+                    </div>
+                </div>
+
+                <div id="map" class="content-screen">
+
+                </div>
+                
+                <div id="tietovisa" class="content-screen">
+                    <!-- Load "tietovisa" scripts -->
+                    <script src="tietovisa.js"></script>
+                    <link rel="stylesheet" type="text/css" href="./tietovisa.css"/>
+                    <div class="tietovisa-container">
+                        <div id="play-menu" class="quiz-menu-container">
+                            <div class="quiz-menu-btns-wrapper">
+                                <div class="score-text-wrapper">
+                                    <p>Pisteesi: </p>
+                                    <p id="curScore"></p>
+                                    <p>/</p>
+                                    <p id="maxScore"></p>
+                                </div>
+                                <button id="play" class="play-btn" onclick="startGame()">Pelaa uudestaan</button>
+                            </div>
+                        </div>
+                        <div id="quiz" class="quiz-container">
+                            <div class="image-wrapper"></div>
+                            <div class="question-wrapper">
+                                <p id="quiz-question" class="question-text">Mikä paikka on kyseessä?</p>
+                            </div>
+                            <div class="answers-wrapper">
+                                <button id="1" class="answer-box" onclick="answer(event, '1')">Vastaus1</button>
+                                <button id="2" class="answer-box" onclick="answer(event, '2')">Vastaus2</button>
+                                <button id="3" class="answer-box" onclick="answer(event, '3')">Vastaus3</button>
+                                <button id="4" class="answer-box" onclick="answer(event, '4')">Vastaus4</button>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- Load necessary scripts -->
                 <script
                 async
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8YVn00-G61qF8XDaSPo89Gx86Cj8UE7s&callback=initMap">
                 </script>
+                <script>
+                    initTabs();
+                </script>
+                
             </div>
             </div>
         </div>
