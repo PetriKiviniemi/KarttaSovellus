@@ -34,14 +34,15 @@
     outline: none;
     transition: 0.3s;
     border-radius: 5px;
-}
-
-.play-btn:hover {
     background-color: lightgrey;
 }
 
+.play-btn:hover {
+    background-color: rgb(158, 158, 158);
+}
+
 .play-btn.active {
-    background-color: #ccc;
+    background-color: rgb(160, 160, 160);
 }
 
 .quiz-container {
@@ -49,6 +50,19 @@
     display: flex;
     flex-wrap:wrap;
     justify-content: center;
+}
+
+.question-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.next-q-btn {
+    width: auto;
+    height: 40px;
+    font-size: 22px;
 }
 
 .image-wrapper {
@@ -73,9 +87,9 @@
 }
 
 .answer-box {
-    width: 40%;
-    height: 130px;
-    font-size: 22px;
+    width: 35%;
+    height: 90px;
+    font-size: 20px;
     margin: 10px;
     outline: none;
     transition: 0.3s;

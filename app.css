@@ -1,5 +1,5 @@
 .content-screen {
-    height: 700px;
+    height: 80vh;
     /* The height is 400 pixels */
     width: 100%;
     /* The width is the width of the web page */
@@ -80,4 +80,8 @@
 /* Info box when marker is clicked */
 .info-box {
     width: 100px;
+}
+
+.gm-style .gm-style-iw {
+    font-size: 18px;
 }

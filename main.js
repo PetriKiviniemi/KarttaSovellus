@@ -27,15 +27,14 @@ function initMap() {
       center: oulu,
     });
     
-    addPlace(formatCoord(65.0629891631731, 25.465280256359225), "Täällä kasvaa kasveja.");
+    addPlace(formatCoord(65.0629891631731, 25.465280256359225), "Kun taivaalta sataa ties mitä ja kaipaat etelän lämpöön, on onneksesi kampuksen välittömässä läheisyydessä pieni pala tropiikkia. Kasvitieteellisessä puutarhassa voit pyörähtää tutkimassa aavikon kasvillisuutta tai viettää pidemmänkin ajan tutkimusmatkalla maailmamme ihmeellisimpiin ilmastoihin. Muista pakata eväät mukaan! ");
     addPlace(formatCoord(65.012615, 25.471453), "Oulun keskusta.");
-    addPlace(formatCoord(65.05964117596208, 25.478542956359078), "Caio ravintola/baari, opiskelijoiden suosima sosiaalinen tila.")
-    addPlace(formatCoord(65.05523594247678, 25.471618099258713), "Linnanmaan liikuntahalli. Opiskelijoille edullinen ja monipuolinen kunnonkasvatus paikka.")
-    addPlace(formatCoord(65.05975781264628, 25.491914929370186), "Kaijon Kipsa. Jos mielesi tekee kebabbia tai muuta herkullista pureskeltavaa, suuntaa tiesi tänne.")
-    addPlace(formatCoord(65.02274092404251, 25.4886057753909), "Tuiran uimaranta on mukava paikka viettää aikaa kesällä muiden opiskelijoiden kanssa, tai talvella käydä vaikka avantouinnilla.")
-    addPlace(formatCoord(65.02029682549218, 25.461877377041652), "Kuusisaaressa on tunnelmaa.")
-    addPlace(formatCoord(65.01393754607543, 25.47016126800521), "Oulu10 löydät kaiken tarvittavan tiedon julkisesta liikenteestä, kuin myös bussikortit.")
-    addPlace(formatCoord(65.01895208987762, 25.478030841044863), "Ainolan puisto on viihtyisä ja rentouttava paikka oleskella raskaan työpäivän jälkeen.")
+    addPlace(formatCoord(65.05964117596208, 25.478542956359078), "Halusit sitten yhden tai useamman, Caiossa voit pistäytyä oli suunnitelmasi mikä tahansa. Tunnelmallinen baari ja sykähdyttävä tanssilattia tarjoavat parastaan opiskelijoille, myös hintojensa puolesta. Caion tapahtumatarjontaa kannattaa pitää silmällä, sillä sieltä löytyy jokaiselle jotakin; keikkoja, stand uppia, burleskia, opiskelijabileitä...")
+    addPlace(formatCoord(65.02274092404251, 25.4886057753909), "Tuiran uimaranta ulottuu hiekkaa laajemmalle alueelle, joka on jälleen oiva paikka viettää aikaa yksin, yhdessä tai Pirkka-oluen kanssa. Mikäs siinä tuiran uimarannalla kesäpäivää vietellessä, kun löytyy hiekkarantaa, rantalentiskenttää, nurmikkoa, kahvilo, laituri ja kelluva sauna. Saunalauttaa pyörittävät kesällä vapaaehtoiset, kertamaksu vitosen ja saunasta hyppy raikkaaseen jokeen. Talvella Tuirasta löytyy lämpimät pukukopit ja avanto.")
+    addPlace(formatCoord(65.02029682549218, 25.461877377041652), "Kuusisaaren uusi ilme tarjoaa kauniin luonnon sijasta hehtaarin verran pussikaljottelutilaa. Grillipaikalle saattaa joutua kärkkymään muutaman tunnin varsinkin kesäisin, mutta odotellessa voi pelailla koripalloa, loikoilla hiekkarannalla tai urheilla ulkoilmakuntosalilla! Satunnaisina viikonloppuina saari rajataan festivaalien käyttöön. Meillä opiskelijoilla ole valitettavasti varaa lippuihin, eli ei siitä sen enempää.")
+    addPlace(formatCoord(65.01393754607543, 25.47016126800521), "Kun tarvitset oikeasti apua, etkä ole lähellä kampusta ja sen tarjoamaa neuvontaa, voit suunnata Oulu10:iin. Täältä saat palvelua mm. bussikorttiin ja OuluCardiin liittyvissä asioissa.")
+    addPlace(formatCoord(65.01895208987762, 25.478030841044863), "Kaiken kansan puisto toimii alustana lähes kaikenlaiselle juopott.. vapaa-ajan toiminnalle. Kesät talvet voi Ainolanpuistossa ulkoilla, istuskella, grillailla, kiipeillä puihin tai leikkiä leikkipuistossa. Lisäksi puistosta löytyy pieni kasvitieteellinen puutarha, Pohjois-Pohjanmaan museo sekä Oulun taidemuseo. Kesäisin myös kahvila Kiikku sekä Hupisaarten kesäteatteri.")
+    addPlace(formatCoord(65.01703872017998, 25.470152943040603), "Sopivasti pyöräbaanan varrelle sijoittuva Linnansaari on täydellinen auringonlaskun valvontapaikka. Nurtsilla loikoilun ja eväiden napostelun lisäksi saaren yläpäästä löytyy kuuluisa Tähtitornin Kahvila ja alapäästä Wakepark ja upouusi vesipuisto. Talvella saari on täysin hyödytön.")
 
     //Iterate dict keys and create markers for every location
     for(let i = 0; i < locations.length; i++)
