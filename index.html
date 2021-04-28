@@ -19,7 +19,7 @@
                         <h1 class="main-header-text">Karttasovellus</h1>
                     </div>
                     <div class="nav-bar-tabs">
-                        <button id='nav-1' class="tab-button" onclick="switchTab(event, 'map')">Paikkojen esittely</button>
+                        <button id='nav-1' class="tab-button" onclick="switchTab(event, 'home')">Paikkojen esittely</button>
                         <button id='nav-2' class="tab-button" onclick="switchTab(event, 'tietovisa')">Tietovisa</button>
                     </div>
                     <p></p>
@@ -37,8 +37,15 @@
                     </div>
                 </div>
 
-                <div id="map" class="content-screen">
-
+                <div id="home" class="content-screen">
+                    <div id="map" class="map-wrapper">
+                    </div>
+                    <div class="prog-bar-container">
+                        <p id="prog-header" class="prog-bar-header">Vieraile paikoissa klikkaamalla markkereita</p>
+                        <div class="prog-bar-wrapper">
+                            <div id="progress-bar" class="prog-bar">0%</div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div id="tietovisa" class="content-screen">
@@ -58,9 +65,9 @@
                             </div>
                         </div>
                         <div id="quiz" class="quiz-container">
-                            <div class="image-wrapper"></div>
+                            <div class="image-wrapper"><img id="quiz-image" class="quiz-img"></img></div>
                             <div class="question-wrapper">
-                                <p id="quiz-question" class="question-text">asdasdasdasdasdasdasdasdasdasd</p>
+                                <p id="quiz-question" class="question-text">asd</p>
                                 <button id="next-btn" class="next-q-btn" onclick="nextQuestion()">Seuraava</button>
                             </div>
                             <div class="answers-wrapper">

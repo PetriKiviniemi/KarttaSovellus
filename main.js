@@ -2,6 +2,8 @@
 
 var locations = [];
 var infoWindows = [];
+var markers = [];
+var progBarWidth = 0;    //width in %
 
 function addPlace(coordinates, text)
 {
@@ -39,18 +41,50 @@ function initMap() {
     //Iterate dict keys and create markers for every location
     for(let i = 0; i < locations.length; i++)
     {
-      console.log(locations[i].key)
       this.createMarker(locations[i].key, map, locations[i].value)
     }
+
+    //Tmp marker for university of oulu
+    var uniouluCenter = formatCoord(65.05930411161441, 25.46631495659123);
+    var marker = new google.maps.Marker({
+      position: uniouluCenter,
+      map: map,
+    });
+    marker.setVisible(false);
+    
+    //Circle University of Oulu for better visibility
+    const uni = new google.maps.Circle({
+      strokeColor: "#FF0000",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#FF0000",
+      fillOpacity: 0.35,
+      map,
+      center: formatCoord(65.05930411161441, 25.46631495659123),
+      radius: Math.sqrt(30) * 100,
+    });
+
+    const infoWindow = new google.maps.InfoWindow({
+      content: "Oulun yliopisto",
+    });
+
+    uni.addListener("click", () => {
+      console.log("clicked")
+      //Add functionality to "visit" marker
+      //Close other infoWindows
+      closeMarkers(null);
+      infoWindow.open(map, marker);
+    });
 }
 
 function createMarker(loc, map, contentStr){
-  
   var marker = new google.maps.Marker({
+    id: loc.lat,
+    isVisited: false,
     position: loc,
     map: map,
   });
-  
+
   //Create info box for marker
   var infoBox = document.createElement("div");
   infoBox.className = 'info-box';
@@ -63,14 +97,53 @@ function createMarker(loc, map, contentStr){
   infoWindows.push(infoWindow);
 
   marker.addListener("click", () => {
+    //Add functionality to "visit" marker
+    visitMarker(marker);
     //Close other infoWindows
-    for(let i = 0; i < infoWindows.length; i++)
-    {
-      infoWindows[i].close();
-    }
+    closeMarkers(null);
     infoWindow.open(map, marker);
   });
+
+  this.markers.push(marker);
   return marker
+}
+
+function closeMarkers(e)
+{
+  for(let i = 0; i < infoWindows.length; i++)
+  {
+    infoWindows[i].close();
+  }
+}
+
+function visitMarker(marker)
+{
+    for(let i = 0; i < this.markers.length; i++)
+    {
+        if(marker.id == markers[i].id && markers[i].isVisited == false)
+        {
+            markers[i].isVisited = true;
+            progBarWidth += 100/this.markers.length
+            this.updateProgBar()
+
+        }
+    }
+    
+    
+}
+
+function updateProgBar()
+{
+  progBar = document.getElementById("progress-bar");
+  progBar.style.width = progBarWidth + "%";
+  progBar.innerHTML = progBarWidth + "%";
+  if(progBarWidth == 100)
+  {
+      
+      elem = document.getElementById("prog-header");
+      elem.innerHTML = "Kaikki käyty! Käy seuraavaksi testaamassa tietämystäsi tietovisassa.";
+      elem.style.fontSize = "28px";
+  } 
 }
 
 function switchTab(event, tabName)
@@ -97,7 +170,7 @@ function initTabs(){
   {
     screens[i].style.display = "none";
   }
-  document.getElementById("map").style.display = "block";
+  document.getElementById("home").style.display = "block";
   navButtons = document.getElementById("nav-1");
   navButtons.className += " active";
 }
