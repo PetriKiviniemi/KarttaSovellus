@@ -5,11 +5,12 @@ var infoWindows = [];
 var markers = [];
 var progBarWidth = 0;    //width in %
 
-function addPlace(coordinates, text)
+function addPlace(coordinates, text, web)
 {
   locations.push({
     key: coordinates,
-    value: text
+    value: text,
+    website: web
   });
 }
 
@@ -29,19 +30,19 @@ function initMap() {
       center: oulu,
     });
     
-    addPlace(formatCoord(65.0629891631731, 25.465280256359225), "Kun taivaalta sataa ties mitä ja kaipaat etelän lämpöön, on onneksesi kampuksen välittömässä läheisyydessä pieni pala tropiikkia. Kasvitieteellisessä puutarhassa voit pyörähtää tutkimassa aavikon kasvillisuutta tai viettää pidemmänkin ajan tutkimusmatkalla maailmamme ihmeellisimpiin ilmastoihin. Muista pakata eväät mukaan! ");
-    addPlace(formatCoord(65.012615, 25.471453), "Oulun keskusta.");
-    addPlace(formatCoord(65.05964117596208, 25.478542956359078), "Halusit sitten yhden tai useamman, Caiossa voit pistäytyä oli suunnitelmasi mikä tahansa. Tunnelmallinen baari ja sykähdyttävä tanssilattia tarjoavat parastaan opiskelijoille, myös hintojensa puolesta. Caion tapahtumatarjontaa kannattaa pitää silmällä, sillä sieltä löytyy jokaiselle jotakin; keikkoja, stand uppia, burleskia, opiskelijabileitä...")
-    addPlace(formatCoord(65.02274092404251, 25.4886057753909), "Tuiran uimaranta ulottuu hiekkaa laajemmalle alueelle, joka on jälleen oiva paikka viettää aikaa yksin, yhdessä tai Pirkka-oluen kanssa. Mikäs siinä tuiran uimarannalla kesäpäivää vietellessä, kun löytyy hiekkarantaa, rantalentiskenttää, nurmikkoa, kahvilo, laituri ja kelluva sauna. Saunalauttaa pyörittävät kesällä vapaaehtoiset, kertamaksu vitosen ja saunasta hyppy raikkaaseen jokeen. Talvella Tuirasta löytyy lämpimät pukukopit ja avanto.")
-    addPlace(formatCoord(65.02029682549218, 25.461877377041652), "Kuusisaaren uusi ilme tarjoaa kauniin luonnon sijasta hehtaarin verran pussikaljottelutilaa. Grillipaikalle saattaa joutua kärkkymään muutaman tunnin varsinkin kesäisin, mutta odotellessa voi pelailla koripalloa, loikoilla hiekkarannalla tai urheilla ulkoilmakuntosalilla! Satunnaisina viikonloppuina saari rajataan festivaalien käyttöön. Meillä opiskelijoilla ole valitettavasti varaa lippuihin, eli ei siitä sen enempää.")
-    addPlace(formatCoord(65.01393754607543, 25.47016126800521), "Kun tarvitset oikeasti apua, etkä ole lähellä kampusta ja sen tarjoamaa neuvontaa, voit suunnata Oulu10:iin. Täältä saat palvelua mm. bussikorttiin ja OuluCardiin liittyvissä asioissa.")
-    addPlace(formatCoord(65.01895208987762, 25.478030841044863), "Kaiken kansan puisto toimii alustana lähes kaikenlaiselle juopott.. vapaa-ajan toiminnalle. Kesät talvet voi Ainolanpuistossa ulkoilla, istuskella, grillailla, kiipeillä puihin tai leikkiä leikkipuistossa. Lisäksi puistosta löytyy pieni kasvitieteellinen puutarha, Pohjois-Pohjanmaan museo sekä Oulun taidemuseo. Kesäisin myös kahvila Kiikku sekä Hupisaarten kesäteatteri.")
-    addPlace(formatCoord(65.01703872017998, 25.470152943040603), "Sopivasti pyöräbaanan varrelle sijoittuva Linnansaari on täydellinen auringonlaskun valvontapaikka. Nurtsilla loikoilun ja eväiden napostelun lisäksi saaren yläpäästä löytyy kuuluisa Tähtitornin Kahvila ja alapäästä Wakepark ja upouusi vesipuisto. Talvella saari on täysin hyödytön.")
+    addPlace(formatCoord(65.0629891631731, 25.465280256359225), "Kun taivaalta sataa ties mitä ja kaipaat etelän lämpöön, on onneksesi kampuksen välittömässä läheisyydessä pieni pala tropiikkia. Kasvitieteellisessä puutarhassa voit pyörähtää tutkimassa aavikon kasvillisuutta tai viettää pidemmänkin ajan tutkimusmatkalla maailmamme ihmeellisimpiin ilmastoihin. Muista pakata eväät mukaan!", null);
+    addPlace(formatCoord(65.012615, 25.471453), "Oulun keskusta.", null);
+    addPlace(formatCoord(65.05964117596208, 25.478542956359078), "Halusit sitten yhden tai useamman, Caiossa voit pistäytyä oli suunnitelmasi mikä tahansa. Tunnelmallinen baari ja sykähdyttävä tanssilattia tarjoavat parastaan opiskelijoille, myös hintojensa puolesta. Caion tapahtumatarjontaa kannattaa pitää silmällä, sillä sieltä löytyy jokaiselle jotakin; keikkoja, stand uppia, burleskia, opiskelijabileitä...", "https://www.caiooulu.com/copy-of-home")
+    addPlace(formatCoord(65.02274092404251, 25.4886057753909), "Tuiran uimaranta ulottuu hiekkaa laajemmalle alueelle, joka on jälleen oiva paikka viettää aikaa yksin, yhdessä tai Pirkka-oluen kanssa. Mikäs siinä tuiran uimarannalla kesäpäivää vietellessä, kun löytyy hiekkarantaa, rantalentiskenttää, nurmikkoa, kahvilo, laituri ja kelluva sauna. Saunalauttaa pyörittävät kesällä vapaaehtoiset, kertamaksu vitosen ja saunasta hyppy raikkaaseen jokeen. Talvella Tuirasta löytyy lämpimät pukukopit ja avanto.",null)
+    addPlace(formatCoord(65.02029682549218, 25.461877377041652), "Kuusisaaren uusi ilme tarjoaa kauniin luonnon sijasta hehtaarin verran pussikaljottelutilaa. Grillipaikalle saattaa joutua kärkkymään muutaman tunnin varsinkin kesäisin, mutta odotellessa voi pelailla koripalloa, loikoilla hiekkarannalla tai urheilla ulkoilmakuntosalilla! Satunnaisina viikonloppuina saari rajataan festivaalien käyttöön. Meillä opiskelijoilla ole valitettavasti varaa lippuihin, eli ei siitä sen enempää.",null)
+    addPlace(formatCoord(65.01393754607543, 25.47016126800521), "Kun tarvitset oikeasti apua, etkä ole lähellä kampusta ja sen tarjoamaa neuvontaa, voit suunnata Oulu10:iin. Täältä saat palvelua mm. bussikorttiin ja OuluCardiin liittyvissä asioissa.","https://www.ouka.fi/oulu/asiointi-ja-neuvonta/")
+    addPlace(formatCoord(65.01895208987762, 25.478030841044863), "Kaiken kansan puisto toimii alustana lähes kaikenlaiselle juopott.. vapaa-ajan toiminnalle. Kesät talvet voi Ainolanpuistossa ulkoilla, istuskella, grillailla, kiipeillä puihin tai leikkiä leikkipuistossa. Lisäksi puistosta löytyy pieni kasvitieteellinen puutarha, Pohjois-Pohjanmaan museo sekä Oulun taidemuseo. Kesäisin myös kahvila Kiikku sekä Hupisaarten kesäteatteri.",null)
+    addPlace(formatCoord(65.01703872017998, 25.470152943040603), "Sopivasti pyöräbaanan varrelle sijoittuva Linnansaari on täydellinen auringonlaskun valvontapaikka. Nurtsilla loikoilun ja eväiden napostelun lisäksi saaren yläpäästä löytyy kuuluisa Tähtitornin Kahvila ja alapäästä Wakepark ja upouusi vesipuisto. Talvella saari on täysin hyödytön.",null)
 
     //Iterate dict keys and create markers for every location
     for(let i = 0; i < locations.length; i++)
     {
-      this.createMarker(locations[i].key, map, locations[i].value)
+      this.createMarker(locations[i].key, map, locations[i].value, locations[i].website)
     }
 
     //Tmp marker for university of oulu
@@ -77,7 +78,7 @@ function initMap() {
     });
 }
 
-function createMarker(loc, map, contentStr){
+function createMarker(loc, map, contentStr, website){
   var marker = new google.maps.Marker({
     id: loc.lat,
     isVisited: false,
@@ -90,8 +91,13 @@ function createMarker(loc, map, contentStr){
   infoBox.className = 'info-box';
   infoBox.innerHTML = marker
 
+  var str = "";
+
+  if(website != null)
+    str = website.link(website);
+
   const infoWindow = new google.maps.InfoWindow({
-    content: contentStr,
+    content: contentStr + str,
   });
 
   infoWindows.push(infoWindow);

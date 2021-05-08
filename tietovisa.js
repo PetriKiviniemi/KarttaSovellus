@@ -15,52 +15,59 @@ function init()
     console.log("Starting tietovisa");
     addQuestion("Lämmittelykysymys: Mikä yliopiston Linnanmaan kampuksella sijaitseva sisäänkäynti on kyseessä?", 
                 ["G-ovi", "F-ovi", "2T-ovi", "J-ovi"],
-                2,
+                3,
                 `2T -ovi on yliopiston pääsisäänkäynti. Edustalla on kattavasti pyöräparkkeja, 
-                parkkipaikka autoille sekä bussipysäkit. Kun kävelet ovesta sisään ja jatkat matkaasi suoraan, 
-                saavut aulaan, josta löytyy mm. OYY:n toimisto, ruokaloita sekä Telluksen rentoutumis- ja keskittymisalueet.`,
-                "./assets/template.jpg");
+                parkkipaikka autoille sekä bussipysäkit.`,
+                "./assets/lipasto.jpg",
+                undefined);
     addQuestion("Mistä yliopiston läheisyydessä olevasta paikasta voit löytää tropiikin tai saharan ilmaston jokaisena vuodenaikana?", 
                 ["Kasvitieteellinen puutarha", "Ravintola Caio", "Tellus", "Toppilan saunamaailma"],
                 1,
                 `Oikea vastaus: Kasvitieteellinen puutarha`,
-                "./assets/template.jpg",
+                "./assets/kasvi.jpg",
                 "./assets/kasviMark.png");
     addQuestion("Mihin kannattaa opiskelijan suunnata ensimmäisenä kun kohtaa seuraavia oireita: kaljahampaan kolotus, tanssijalan vipatus, tapahtuma-himo?", 
                 ["Linnanmaan liikuntahalli", "Ravintola Caio", "Tokmanni", "Tellus"],
                 2,
                 `Oikea vastaus: Ravintola Caio`,
-                null);
+                "./assets/caio.jpg",
+                "./assets/caioMark.png");
     addQuestion("Mikä saari on vastikään päivityksen saanut ulkoilukohde sekä kuuluisa kesän festivaaleistaan?", 
                 ["Kuusisaari", "Lammassaari", "Turkansaari", "Linnansaari"],
                 1,
                 `Oikea vastaus: Kuusisaari`,
-                null);
+                "./assets/kuusi.jpg",
+                "./assets/kuusiMark.png");
     addQuestion("Tämän herkun ohi on helppo sujahtaa huomaamatta pyöräbaanaa pitkin, mutta pysähtyessäsi voit löytää historiallisen kahvila-kirjakaupan tai vesipuiston.", 
                 ["Ainolanpuisto", "Kiikeli", "Mannerheiminpuisto", "Linnansaari"],
                 4,
                 `Oikea vastaus: Linnansaari`,
-                null);
+                "./assets/linnansaari.jpg",
+                "./assets/linnaMark.png");
     addQuestion("Ouluun liittyvät kysymykset odottavat kysyjäänsä virka-aikoina tässä paikassa.", 
                 ["Kauppahalli", "Tuiran uimaranta", "Ravintola Kaarlenhovi", "Oulu10"],
                 4,
                 `Oikea vastaus: Oulu10`,
-                null);
+                "./assets/oulu10.jpg",
+                "./assets/oulu10Mark.png");
     addQuestion("Kuka on kuvassa oleva henkilö, jonka elämäntyö perustuu Oulun Kauppatorin vartiointiin?", 
                 ["Torivahtimestari", "Torisairaanhoitaja", "Toripolliisi", "Torikauppias"],
                 3,
-                `Oikea vastaus: Torikauppias`,
-                null);
+                `Oikea vastaus: Toripolliisi`,
+                "./assets/toripoliisi.jpg",
+                undefined);
     addQuestion("Mikä seuraavista on Oulun keskustan suurin ja kattavin, vuodenajasta riippumatta kaunis ulkoilu- ja ajanviettopaikka?", 
                 ["Ainolanpuisto", "Peppers", "Valkea", "Kiikeli"],
                 1,
                 `Oikea vastaus: Ainolanpuisto`,
-                null);
+                "./assets/ainola.jpg",
+                "./assets/ainolaMark.png");
     addQuestion("Jokirannan paras pulahdus, oli sitten helle tai pakkanen, löytyy täältä.", 
                 ["Torinranta", "Linnansaari ", "Pikisaari", "Tuiran uimaranta"],
                 4,
                 `Oikea vastaus: Tuiran uimaranta`,
-                null);
+                "./assets/tuira.jpg",
+                "./assets/tuiraMark.png");
     resetGame();
     startGame();
 }
@@ -192,7 +199,8 @@ function answer(event, id)
 {
     resetAnswers();
     //Update the image to show the location
-    document.getElementById("quiz-image").src = questions[questionNum].imgAfter;
+    if(typeof questions[questionNum].imgAfter != 'undefined')
+        document.getElementById("quiz-image").src = questions[questionNum].imgAfter;
 
     //Find answer boxes
     quizOptions = document.getElementsByClassName("answer-box");

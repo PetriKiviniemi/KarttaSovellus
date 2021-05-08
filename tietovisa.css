@@ -66,23 +66,24 @@
 }
 
 .image-wrapper {
-    width: 80%;
-    height: 300px;
-    border: 1px solid;
+    width: 100%;
+    height: 25em;
+    
 }
 
 
 .quiz-img {
     width: 100%;
     height: 100%;
-    object-fit: fill; 
+    object-fit: cover; 
     
 }
 
 .question-text {
     margin-top: 10px;
     margin-bottom: 0;
-    font-size: 24px;
+    max-height: 50px;
+    font-size: 22px;
     text-align: center;
 }
 
