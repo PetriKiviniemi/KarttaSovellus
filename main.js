@@ -4,6 +4,7 @@ var locations = [];
 var infoWindows = [];
 var markers = [];
 var progBarWidth = 0;    //width in %
+var markerLinks = [];
 
 function addPlace(coordinates, text, web)
 {
@@ -22,9 +23,9 @@ function formatCoord(x, y)
 
 // Initialize and add the map
 function initMap() {
-    // The location of Uluru
+    // The location of Oulu
     const oulu = { lat: 65.012615, lng: 25.471453 };
-    // The map, centered at Uluru
+    // The map, centered at Oulu
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 12,
       center: oulu,
@@ -76,6 +77,12 @@ function initMap() {
       closeMarkers(null);
       infoWindow.open(map, marker);
     });
+    
+}
+
+function test(str)
+{
+  window.open(str, '_blank')
 }
 
 function createMarker(loc, map, contentStr, website){
@@ -91,13 +98,19 @@ function createMarker(loc, map, contentStr, website){
   infoBox.className = 'info-box';
   infoBox.innerHTML = marker
 
-  var str = "";
-
+  //Build link
+  
+  var newLink = document.createElement("div");
   if(website != null)
-    str = website.link(website);
+    newLink.innerHTML = '<a href="#" onclick="test(\'' + website + '\')">' + website + "</a>"
+  else
+    newLink.innerHTML = ""
+  var tmpNode = document.createElement("div");
+  tmpNode.appendChild(newLink);
+
 
   const infoWindow = new google.maps.InfoWindow({
-    content: contentStr + str,
+    content: contentStr + tmpNode.innerHTML,
   });
 
   infoWindows.push(infoWindow);
