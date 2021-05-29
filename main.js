@@ -80,7 +80,7 @@ function initMap() {
     
 }
 
-function test(str)
+function inTab(str)
 {
   window.open(str, '_blank')
 }
@@ -102,7 +102,7 @@ function createMarker(loc, map, contentStr, website){
   
   var newLink = document.createElement("div");
   if(website != null)
-    newLink.innerHTML = '<a href="#" onclick="test(\'' + website + '\')">' + website + "</a>"
+    newLink.innerHTML = '<a href="#" onclick="inTab(\'' + website + '\')">' + website + "</a>"
   else
     newLink.innerHTML = ""
   var tmpNode = document.createElement("div");
@@ -127,6 +127,7 @@ function createMarker(loc, map, contentStr, website){
   return marker
 }
 
+//Function to close the markers
 function closeMarkers(e)
 {
   for(let i = 0; i < infoWindows.length; i++)
@@ -135,6 +136,8 @@ function closeMarkers(e)
   }
 }
 
+//Functionality to "visit" the marker
+//Increase the user's progress and animate progress bar
 function visitMarker(marker)
 {
     for(let i = 0; i < this.markers.length; i++)
@@ -151,6 +154,7 @@ function visitMarker(marker)
     
 }
 
+//Function to update the progress bar
 function updateProgBar()
 {
   progBar = document.getElementById("progress-bar");
@@ -165,6 +169,7 @@ function updateProgBar()
   } 
 }
 
+//Function for switching between tabs, is modular and works with multiple tabs
 function switchTab(event, tabName)
 {
   //Hide the other screens, and display the desired screen
@@ -182,6 +187,7 @@ function switchTab(event, tabName)
   event.currentTarget.className += " active";
 }
 
+//Startup for tabs, set the default values for them
 function initTabs(){
   //Only display the main screen's content
   screens = document.getElementsByClassName("content-screen");

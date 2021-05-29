@@ -6,10 +6,12 @@ var imageSrc = "";      //Source for the quiz image
 var curScore = 0;
 var gameOn = true;      //boolean for game/menu state
 
+//Utility function to sleep
 function sleep(ms){
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+//Initialize the questions and the quiz section
 function init()
 {
     console.log("Starting tietovisa");
@@ -72,6 +74,7 @@ function init()
     startGame();
 }
 
+//Function to set default values for the quiz
 function resetGame()
 {
     questionNum = 0;
@@ -101,6 +104,7 @@ function startGame()
     displayGame();
 }
 
+//Set the display style of the game to visible if the game has started
 function displayGame()
 {
     if(gameOn)
@@ -110,6 +114,7 @@ function displayGame()
     }
 }
 
+//Set the display style of the menu to visible
 function displayMenu()
 {
     if(!gameOn)
@@ -143,6 +148,7 @@ function gameOver()
     displayMenu();
 }
 
+//Update question's properties
 function updateQuestion(questionObj)
 {
     if(gameOn)
@@ -159,6 +165,7 @@ function updateQuestion(questionObj)
     }
 }
 
+//Function to traverse to next question/state
 function nextQuestion()
 {
     console.log("Next question")
@@ -175,7 +182,7 @@ function nextQuestion()
     playState()
 }
 
-//Not needed anymore
+//Wait function if the user has already clicked (Way to block user input if the user has already answererd)
 function freezeState(ms)
 {
     quizOptions = document.getElementsByClassName("answer-box");
